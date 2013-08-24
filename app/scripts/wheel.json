@@ -1,0 +1,27 @@
+[
+  {
+    "name": "LokSabha",
+    "children": [
+      {
+        "name" : "Tamil Nadu",
+        "children" : [
+            {
+                "name": "Madurai"
+            },
+            {
+                "name": "Chennai"
+            },
+            {
+                "name": "Coimbatore"
+            },
+            {
+                "name": "Kanyakumari"
+            },
+            {
+                "name": "Sambu"
+            }
+        ]
+      }
+    ]
+  }
+]
