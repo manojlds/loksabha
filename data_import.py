@@ -34,9 +34,20 @@ def handle(*args):
     csvfilename = args[0]
     csvfile = __csvfile(csvfilename)
 
-    d = defaultdict(dict)
+    d = defaultdict(list)
+    d['name'] = "LokSabha"
     for row in csvfile:
-        d[row[0].strip()].append([row[1].strip(), row[2].strip(), row[3].strip()])
+        state = row[0].strip()
+        child = next((x for x in d['children'] if x['name'] == state), None)
+        if child is None:
+            d['children'].append({
+                'name': state,
+                'children': [{
+                        'name': row[1].strip()
+                    }]
+                })
+        else:
+            child['children'].append({'name': row[1].strip()})
 
-    print json.dumps(d)
+    print json.dumps([d])
 if __name__ == "__main__": handle(*sys.argv[1:])

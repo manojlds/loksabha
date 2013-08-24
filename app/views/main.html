@@ -9,17 +9,11 @@ var width = 840,
 
 var div = d3.select("#vis");
 
-//div.select("img").remove();
-
 var vis = div.append("svg")
     .attr("width", width + padding * 2)
     .attr("height", height + padding * 2)
   .append("g")
     .attr("transform", "translate(" + [radius + padding, radius + padding] + ")");
-
-div.append("p")
-    .attr("id", "intro")
-    .text("Click to zoom!");
 
 var partition = d3.layout.partition()
     .sort(null)
